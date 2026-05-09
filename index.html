@@ -7,6 +7,8 @@
 
 <title>MI AL MUSLIM BEGANJING</title>
 
+<meta name="description" content="Website Resmi MI AL MUSLIM BEGANJING">
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -18,48 +20,14 @@
 }
 
 body{
+
   font-family:'Poppins',sans-serif;
+
   overflow-x:hidden;
+
   background:black;
+
   color:white;
-}
-
-/* =========================
-   INTRO VIDEO
-========================= */
-
-#intro-video{
-
-  position:fixed;
-
-  top:0;
-  left:0;
-
-  width:100%;
-  height:100%;
-
-  background:black;
-
-  z-index:99999;
-
-  display:flex;
-
-  justify-content:center;
-  align-items:center;
-
-  overflow:hidden;
-
-  transition:1s;
-}
-
-#intro-video video{
-
-  width:100%;
-  height:100%;
-
-  object-fit:contain;
-
-  background:black;
 }
 
 /* =========================
@@ -67,12 +35,17 @@ body{
 ========================= */
 
 .video-background{
+
   position:fixed;
+
   top:0;
   left:0;
+
   width:100%;
   height:100%;
+
   overflow:hidden;
+
   z-index:-3;
 }
 
@@ -121,7 +94,7 @@ body{
   animation-delay:40s;
 }
 
-/* ANIMASI */
+/* ANIMASI VIDEO */
 
 @keyframes videoFade{
 
@@ -149,22 +122,24 @@ body{
 
 }
 
-/* OVERLAY */
+/* =========================
+   OVERLAY
+========================= */
 
 .overlay{
 
   position:fixed;
 
-  width:100%;
-  height:100%;
-
   top:0;
   left:0;
+
+  width:100%;
+  height:100%;
 
   background:
   linear-gradient(
   rgba(0,0,0,0.25),
-  rgba(0,0,0,0.45)
+  rgba(0,0,0,0.55)
   );
 
   z-index:-2;
@@ -177,6 +152,7 @@ body{
 .container{
 
   width:100%;
+
   max-width:1200px;
 
   margin:auto;
@@ -206,21 +182,51 @@ body{
 
   box-shadow:
   0 10px 40px rgba(0,0,0,0.5);
-
 }
 
 /* =========================
-   LOGO
+   LOGO WRAPPER
+========================= */
+
+.logo-wrapper{
+
+  position:relative;
+
+  width:220px;
+
+  height:220px;
+
+  margin:auto;
+}
+
+/* =========================
+   LOGO NORMAL
 ========================= */
 
 .logo{
 
-  width:170px;
-
-  margin-bottom:20px;
+  width:180px;
 
   animation:float 3s ease-in-out infinite;
+
+  filter:
+  drop-shadow(0 8px 15px rgba(0,0,0,0.5));
 }
+
+.normal-logo{
+
+  position:absolute;
+
+  inset:0;
+
+  margin:auto;
+
+  z-index:2;
+
+  transition:1s;
+}
+
+/* LOGO MELAYANG */
 
 @keyframes float{
 
@@ -235,14 +241,109 @@ body{
 }
 
 /* =========================
+   INTRO MINI
+========================= */
+
+.intro-mini{
+
+  position:absolute;
+
+  inset:0;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:center;
+  align-items:center;
+
+  opacity:0;
+
+  transform:scale(0.5);
+
+  z-index:3;
+
+  transition:1s;
+}
+
+/* LOGO INTRO */
+
+.intro-logo-mini{
+
+  width:160px;
+
+  animation:
+  miniGlow 1.5s infinite alternate,
+  miniSpin 4s linear infinite;
+
+  filter:
+  drop-shadow(0 0 25px rgba(0,255,170,0.8));
+}
+
+/* TEXT INTRO */
+
+.intro-mini-text{
+
+  margin-top:12px;
+
+  font-size:20px;
+
+  font-weight:bold;
+
+  letter-spacing:2px;
+
+  color:white;
+
+  text-shadow:
+  0 0 15px rgba(0,255,170,0.8);
+}
+
+/* GLOW */
+
+@keyframes miniGlow{
+
+  from{
+
+    filter:
+    drop-shadow(0 0 10px rgba(0,255,170,0.3));
+
+  }
+
+  to{
+
+    filter:
+    drop-shadow(0 0 30px rgba(0,255,170,1));
+
+  }
+
+}
+
+/* SPIN */
+
+@keyframes miniSpin{
+
+  from{
+    transform:rotate(0deg);
+  }
+
+  to{
+    transform:rotate(360deg);
+  }
+
+}
+
+/* =========================
    TEXT
 ========================= */
 
 h1{
 
-  font-size:34px;
+  font-size:36px;
 
   margin-bottom:15px;
+
+  text-shadow:
+  0 4px 15px rgba(0,0,0,0.6);
 }
 
 .desc{
@@ -250,19 +351,30 @@ h1{
   line-height:1.8;
 
   margin-bottom:20px;
+
+  color:#f0f0f0;
 }
 
+/* =========================
+   RUNNING TEXT
+========================= */
+
 marquee{
+
+  margin-bottom:20px;
 
   color:#00ffae;
 
   font-weight:bold;
 
-  margin-bottom:20px;
+  font-size:18px;
+
+  text-shadow:
+  0 0 10px rgba(0,255,170,0.8);
 }
 
 /* =========================
-   MENU
+   MENU GRID
 ========================= */
 
 .menu-grid{
@@ -276,6 +388,10 @@ marquee{
 
   margin-top:30px;
 }
+
+/* =========================
+   MENU CARD
+========================= */
 
 .menu-card{
 
@@ -309,24 +425,29 @@ marquee{
   transform:
   translateY(-6px)
   scale(1.03);
+
+  box-shadow:
+  0 0 20px rgba(0,255,170,0.5);
 }
+
+/* ICON */
 
 .menu-icon{
 
-  font-size:40px;
+  font-size:42px;
 
   margin-bottom:15px;
 
   display:block;
 }
 
+/* TITLE */
+
 .menu-title{
 
   font-size:20px;
 
   font-weight:600;
-
-  margin-bottom:8px;
 }
 
 /* =========================
@@ -431,17 +552,31 @@ footer{
 }
 
 /* =========================
-   RESPONSIVE HP
+   RESPONSIVE
 ========================= */
 
 @media(max-width:768px){
 
-  h1{
-    font-size:26px;
+  .logo-wrapper{
+
+    width:170px;
+    height:170px;
   }
 
   .logo{
     width:140px;
+  }
+
+  .intro-logo-mini{
+    width:120px;
+  }
+
+  .intro-mini-text{
+    font-size:15px;
+  }
+
+  h1{
+    font-size:26px;
   }
 
   .hero-card{
@@ -457,21 +592,7 @@ footer{
 <body>
 
 <!-- =========================
-     INTRO VIDEO
-========================= -->
-
-<div id="intro-video">
-
-  <video autoplay muted playsinline id="introPlayer">
-
-    <source src="intro.mp4" type="video/mp4">
-
-  </video>
-
-</div>
-
-<!-- =========================
-     BACKGROUND VIDEO
+     VIDEO BACKGROUND
 ========================= -->
 
 <div class="video-background">
@@ -502,6 +623,8 @@ footer{
 
 </div>
 
+<!-- OVERLAY -->
+
 <div class="overlay"></div>
 
 <!-- JAM -->
@@ -526,74 +649,161 @@ footer{
 
   <div class="hero-card">
 
-    <img src="logo_mi.png" class="logo">
+    <!-- LOGO AREA -->
+
+    <div class="logo-wrapper">
+
+      <!-- LOGO NORMAL -->
+
+      <img src="logo_mi.png"
+      class="logo normal-logo"
+      id="normalLogo">
+
+      <!-- INTRO MINI -->
+
+      <div class="intro-mini"
+      id="introMini">
+
+        <img src="logo_mi.png"
+        class="intro-logo-mini">
+
+        <div class="intro-mini-text">
+          MI AL MUSLIM
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- RUNNING TEXT -->
 
     <marquee behavior="scroll" direction="left">
-      ✨ Selamat Datang di Website UjiCoba MI AL MUSLIM BEGANJING ✨
+
+      ✨ Selamat Datang di Website Resmi
+      MI AL MUSLIM BEGANJING •
+      Pendidikan Islami •
+      Akhlak • Prestasi ✨
+
     </marquee>
 
-    <h1>MI AL MUSLIM BEGANJING</h1>
+    <!-- TITLE -->
+
+    <h1>
+      🌐 MI AL MUSLIM BEGANJING
+    </h1>
+
+    <!-- DESC -->
 
     <div class="desc">
+
       Madrasah Ibtidaiyah Islami<br>
       Pendidikan • Akhlak • Prestasi
+
     </div>
 
     <!-- MENU -->
 
     <div class="menu-grid">
 
-      <a href="#" class="menu-card">
+      <a href="#"
+      class="menu-card">
+
         <span class="menu-icon">🏫</span>
-        <div class="menu-title">Website</div>
+
+        <div class="menu-title">
+          Website
+        </div>
+
       </a>
 
-      <a href="#" class="menu-card">
+      <a href="#"
+      class="menu-card">
+
         <span class="menu-icon">📚</span>
-        <div class="menu-title">Data Guru</div>
+
+        <div class="menu-title">
+          Data Guru
+        </div>
+
       </a>
 
-      <a href="#" class="menu-card">
+      <a href="#"
+      class="menu-card">
+
         <span class="menu-icon">🏆</span>
-        <div class="menu-title">Prestasi</div>
+
+        <div class="menu-title">
+          Prestasi
+        </div>
+
       </a>
 
-      <a href="#" class="menu-card">
+      <a href="#"
+      class="menu-card">
+
         <span class="menu-icon">🕌</span>
-        <div class="menu-title">Kegiatan</div>
+
+        <div class="menu-title">
+          Kegiatan
+        </div>
+
       </a>
 
-      <a href="#" class="menu-card">
+      <a href="#"
+      class="menu-card">
+
         <span class="menu-icon">📝</span>
-        <div class="menu-title">PPDB</div>
+
+        <div class="menu-title">
+          PPDB
+        </div>
+
       </a>
 
-      <a href="https://wa.me/6281234567890" class="menu-card">
+      <a href="https://wa.me/6281234567890"
+      class="menu-card">
+
         <span class="menu-icon">💬</span>
-        <div class="menu-title">WhatsApp</div>
+
+        <div class="menu-title">
+          WhatsApp
+        </div>
+
       </a>
 
     </div>
 
   </div>
 
+  <!-- FOOTER -->
+
   <footer>
-    Copyright © 2026 MI AL MUSLIM BEGANJING
+
+    Copyright © 2026
+    MI AL MUSLIM BEGANJING
+
   </footer>
 
 </div>
 
 <!-- WA FLOAT -->
 
-<a href="https://wa.me/6281234567890" class="wa-float">
+<a href="https://wa.me/6281234567890"
+class="wa-float">
+
 💬
+
 </a>
 
-<!-- SCRIPT -->
+<!-- =========================
+     SCRIPT
+========================= -->
 
 <script>
 
-/* JAM */
+/* =========================
+   JAM
+========================= */
 
 function updateClock(){
 
@@ -610,27 +820,9 @@ setInterval(updateClock,1000);
 
 updateClock();
 
-/* INTRO VIDEO */
-
-const intro =
-document.getElementById('intro-video');
-
-const introPlayer =
-document.getElementById('introPlayer');
-
-introPlayer.onended = function(){
-
-  intro.style.opacity = "0";
-
-  setTimeout(()=>{
-
-    intro.style.display = "none";
-
-  },1000);
-
-};
-
-/* MUSIK */
+/* =========================
+   MUSIK
+========================= */
 
 function playMusic(){
 
@@ -639,6 +831,52 @@ function playMusic(){
 
   music.play();
 }
+
+/* =========================
+   INTRO LOGO
+========================= */
+
+const normalLogo =
+document.getElementById("normalLogo");
+
+const introMini =
+document.getElementById("introMini");
+
+/* MULAI SETELAH 4 DETIK */
+
+setTimeout(()=>{
+
+  /* SEMBUNYIKAN LOGO */
+
+  normalLogo.style.opacity = "0";
+
+  normalLogo.style.transform =
+  "scale(0.5)";
+
+  /* TAMPILKAN INTRO */
+
+  introMini.style.opacity = "1";
+
+  introMini.style.transform =
+  "scale(1)";
+
+},4000);
+
+/* KEMBALIKAN LOGO */
+
+setTimeout(()=>{
+
+  introMini.style.opacity = "0";
+
+  introMini.style.transform =
+  "scale(0.5)";
+
+  normalLogo.style.opacity = "1";
+
+  normalLogo.style.transform =
+  "scale(1)";
+
+},9000);
 
 </script>
 
