@@ -13,6 +13,10 @@
 
 <style>
 
+/* =========================
+   RESET
+========================= */
+
 *{
   margin:0;
   padding:0;
@@ -241,10 +245,10 @@ body{
 }
 
 /* =========================
-   INTRO MINI
+   VIDEO INTRO MINI
 ========================= */
 
-.intro-mini{
+.intro-video-mini{
 
   position:absolute;
 
@@ -259,75 +263,67 @@ body{
 
   opacity:0;
 
-  transform:scale(0.5);
+  transform:scale(0.7);
 
-  z-index:3;
+  z-index:5;
 
   transition:1s;
 }
 
-/* LOGO INTRO */
+/* VIDEO INTRO */
 
-.intro-logo-mini{
+.intro-video-mini video{
 
-  width:160px;
+  width:190px;
+  height:190px;
 
-  animation:
-  miniGlow 1.5s infinite alternate,
-  miniSpin 4s linear infinite;
+  object-fit:contain;
+
+  border-radius:30px;
+
+  background:transparent;
 
   filter:
-  drop-shadow(0 0 25px rgba(0,255,170,0.8));
+  drop-shadow(0 0 25px rgba(0,255,170,0.7));
 }
 
 /* TEXT INTRO */
 
-.intro-mini-text{
+.intro-video-text{
 
-  margin-top:12px;
+  margin-top:10px;
 
-  font-size:20px;
+  font-size:18px;
 
   font-weight:bold;
 
-  letter-spacing:2px;
-
   color:white;
+
+  letter-spacing:2px;
 
   text-shadow:
   0 0 15px rgba(0,255,170,0.8);
+
+  animation:textGlow 2s infinite alternate;
 }
 
 /* GLOW */
 
-@keyframes miniGlow{
+@keyframes textGlow{
 
   from{
 
-    filter:
-    drop-shadow(0 0 10px rgba(0,255,170,0.3));
+    opacity:0.7;
 
   }
 
   to{
 
-    filter:
-    drop-shadow(0 0 30px rgba(0,255,170,1));
+    opacity:1;
 
-  }
+    text-shadow:
+    0 0 25px rgba(0,255,170,1);
 
-}
-
-/* SPIN */
-
-@keyframes miniSpin{
-
-  from{
-    transform:rotate(0deg);
-  }
-
-  to{
-    transform:rotate(360deg);
   }
 
 }
@@ -567,12 +563,13 @@ footer{
     width:140px;
   }
 
-  .intro-logo-mini{
-    width:120px;
+  .intro-video-mini video{
+    width:140px;
+    height:140px;
   }
 
-  .intro-mini-text{
-    font-size:15px;
+  .intro-video-text{
+    font-size:14px;
   }
 
   h1{
@@ -659,16 +656,23 @@ footer{
       class="logo normal-logo"
       id="normalLogo">
 
-      <!-- INTRO MINI -->
+      <!-- VIDEO INTRO -->
 
-      <div class="intro-mini"
-      id="introMini">
+      <div class="intro-video-mini"
+      id="introVideoMini">
 
-        <img src="logo_mi.png"
-        class="intro-logo-mini">
+        <video muted playsinline
+        id="miniIntroVideo">
 
-        <div class="intro-mini-text">
-          MI AL MUSLIM
+          <source src="intro.mp4"
+          type="video/mp4">
+
+        </video>
+
+        <div class="intro-video-text">
+
+          ✨ MI AL MUSLIM BEGANJING ✨
+
         </div>
 
       </div>
@@ -705,8 +709,7 @@ footer{
 
     <div class="menu-grid">
 
-      <a href="#"
-      class="menu-card">
+      <a href="#" class="menu-card">
 
         <span class="menu-icon">🏫</span>
 
@@ -716,8 +719,7 @@ footer{
 
       </a>
 
-      <a href="#"
-      class="menu-card">
+      <a href="#" class="menu-card">
 
         <span class="menu-icon">📚</span>
 
@@ -727,8 +729,7 @@ footer{
 
       </a>
 
-      <a href="#"
-      class="menu-card">
+      <a href="#" class="menu-card">
 
         <span class="menu-icon">🏆</span>
 
@@ -738,8 +739,7 @@ footer{
 
       </a>
 
-      <a href="#"
-      class="menu-card">
+      <a href="#" class="menu-card">
 
         <span class="menu-icon">🕌</span>
 
@@ -749,8 +749,7 @@ footer{
 
       </a>
 
-      <a href="#"
-      class="menu-card">
+      <a href="#" class="menu-card">
 
         <span class="menu-icon">📝</span>
 
@@ -833,16 +832,19 @@ function playMusic(){
 }
 
 /* =========================
-   INTRO LOGO
+   VIDEO INTRO LOGO
 ========================= */
 
 const normalLogo =
 document.getElementById("normalLogo");
 
-const introMini =
-document.getElementById("introMini");
+const introVideo =
+document.getElementById("introVideoMini");
 
-/* MULAI SETELAH 4 DETIK */
+const miniVideo =
+document.getElementById("miniIntroVideo");
+
+/* MUNCUL SETELAH 4 DETIK */
 
 setTimeout(()=>{
 
@@ -851,25 +853,31 @@ setTimeout(()=>{
   normalLogo.style.opacity = "0";
 
   normalLogo.style.transform =
-  "scale(0.5)";
+  "scale(0.7)";
 
-  /* TAMPILKAN INTRO */
+  /* TAMPILKAN VIDEO */
 
-  introMini.style.opacity = "1";
+  introVideo.style.opacity = "1";
 
-  introMini.style.transform =
+  introVideo.style.transform =
   "scale(1)";
+
+  /* PLAY VIDEO */
+
+  miniVideo.currentTime = 0;
+
+  miniVideo.play();
 
 },4000);
 
-/* KEMBALIKAN LOGO */
+/* KEMBALI KE LOGO */
 
 setTimeout(()=>{
 
-  introMini.style.opacity = "0";
+  introVideo.style.opacity = "0";
 
-  introMini.style.transform =
-  "scale(0.5)";
+  introVideo.style.transform =
+  "scale(0.7)";
 
   normalLogo.style.opacity = "1";
 
