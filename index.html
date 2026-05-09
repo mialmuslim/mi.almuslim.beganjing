@@ -671,7 +671,7 @@ footer{
 
         <div class="intro-video-text">
 
-          ✨ MI AL MUSLIM BEGANJING ✨
+          ✨ MI AL-MUSLIM BEGANJING ✨
 
         </div>
 
@@ -683,8 +683,8 @@ footer{
 
     <marquee behavior="scroll" direction="left">
 
-      ✨ Selamat Datang di Website Resmi
-      MI AL MUSLIM BEGANJING •
+      ✨ Selamat Datang di Website UjiCoba
+      MI AL-MUSLIM DESA BEGANJING KECAMATAN JAPAH KABUPATEN BLORA•
       Pendidikan Islami •
       Akhlak • Prestasi ✨
 
@@ -693,7 +693,7 @@ footer{
     <!-- TITLE -->
 
     <h1>
-      🌐 MI AL MUSLIM BEGANJING
+      MI AL-MUSLIM BEGANJING
     </h1>
 
     <!-- DESC -->
@@ -832,7 +832,7 @@ function playMusic(){
 }
 
 /* =========================
-   VIDEO INTRO LOGO
+   VIDEO INTRO LOOP
 ========================= */
 
 const normalLogo =
@@ -844,35 +844,11 @@ document.getElementById("introVideoMini");
 const miniVideo =
 document.getElementById("miniIntroVideo");
 
-/* MUNCUL SETELAH 4 DETIK */
+/* =========================
+   FUNGSI LOGO
+========================= */
 
-setTimeout(()=>{
-
-  /* SEMBUNYIKAN LOGO */
-
-  normalLogo.style.opacity = "0";
-
-  normalLogo.style.transform =
-  "scale(0.7)";
-
-  /* TAMPILKAN VIDEO */
-
-  introVideo.style.opacity = "1";
-
-  introVideo.style.transform =
-  "scale(1)";
-
-  /* PLAY VIDEO */
-
-  miniVideo.currentTime = 0;
-
-  miniVideo.play();
-
-},4000);
-
-/* KEMBALI KE LOGO */
-
-setTimeout(()=>{
+function showLogo(){
 
   introVideo.style.opacity = "0";
 
@@ -883,8 +859,61 @@ setTimeout(()=>{
 
   normalLogo.style.transform =
   "scale(1)";
+}
 
-},9000);
+/* =========================
+   FUNGSI VIDEO
+========================= */
+
+function showVideo(){
+
+  normalLogo.style.opacity = "0";
+
+  normalLogo.style.transform =
+  "scale(0.7)";
+
+  introVideo.style.opacity = "1";
+
+  introVideo.style.transform =
+  "scale(1)";
+
+  miniVideo.currentTime = 0;
+
+  miniVideo.play();
+}
+
+/* =========================
+   AWAL WEBSITE
+========================= */
+
+showLogo();
+
+/* =========================
+   LOOP TERUS MENERUS
+========================= */
+
+setInterval(()=>{
+
+  /* VIDEO 17 DETIK */
+
+  showVideo();
+
+  /* KEMBALI LOGO */
+
+  setTimeout(()=>{
+
+    showLogo();
+
+  },17000);
+
+},27000);
+
+/*
+27 DETIK =
+17 DETIK VIDEO
++
+10 DETIK LOGO
+*/
 
 </script>
 
